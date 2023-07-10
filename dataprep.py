@@ -31,7 +31,7 @@ df = pd.DataFrame(data=[row for row in cursor], columns=['name', 'x', 'y'])
 cursor = arcpy.da.SearchCursor(exclude, ['uID_20201124', 'exclude']) 
 df_ex = pd.DataFrame(data=[row for row in cursor], columns=['name', 'exclude'])
 df = df.merge(df_ex, on='name')
-df = df[df.exclude.isna()]    # LOOK UP WHAT I DID IN THE PAST  . ALSO REMOVE EXCLUDE COLUMN
+df = df[df.exclude.isna()]
 # list of uIDs to exclude
 ex_list = list(df_ex.name[df_ex.exclude.isin([1,2])])
 
